@@ -30,7 +30,7 @@ $(document).ready(function() {
                 getTemperature(res.data[type]);
                 break;
             default:
-                FControl.appendSelectOptions($selects[type], res.data[type]);
+                FControl.appendSelectOptions($selects[type], res.data[type], type);
                 FControl.show($selects[type]);
         }
     }
@@ -42,7 +42,6 @@ $(document).ready(function() {
             'state_id': $selects['states'].val(),
             'city_id': $selects['cities'].val(),
         }
-        console.log(params);
         WeatherAPI.getTemperature(params, (res) => {
             $temperature.html(res['temperature'] || 0);
             FControl.show($temperature);

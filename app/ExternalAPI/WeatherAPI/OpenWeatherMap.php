@@ -25,5 +25,4 @@ class OpenWeatherMap extends AbstractWeatherAPIRequest implements WeatherContrac
     {
         $this->url = self::API_URL . 'weather?lat=' . $latitude . "&lon=" . $longitude . "&appid=" . env('OPENWEATHERMAP_KEY') . "&units=metric";
     }
-
 }

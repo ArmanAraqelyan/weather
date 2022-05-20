@@ -1,9 +1,9 @@
 const FControl = {
-    appendSelectOptions: function ($el, options) {
-        $el.html(this.getSelectOptionsHTML(options));
+    appendSelectOptions: function ($el, options, type) {
+        $el.html(this.getSelectOptionsHTML(options, type));
     },
-    getSelectOptionsHTML: function (options) {
-         let html = '<option value="0" data-id="0">Please select your state</option>'
+    getSelectOptionsHTML: function (options, type) {
+         let html = `<option value="0" data-id="0" disabled selected>Please select your ${type === 'states' ? 'state' : 'city' }</option>`
          options.forEach( value =>
             html += `<option value=${value.id} data-location='{"latitude":${value.latitude}, "longitude":${value.longitude}}'>${value.name}</option>`
          )

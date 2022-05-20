@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\API\{
     LocationController,
     WeatherController
@@ -16,7 +17,7 @@ use App\Http\Controllers\API\{
 |
 */
 
-Route::get('/', [App\Http\Controllers\SiteController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 // API routes
 Route::middleware(['api'])->group(function () {

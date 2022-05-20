@@ -25,8 +25,8 @@ class WeatherRequest extends FormRequest
     {
         return [
             'country_id' => 'required|int',
-            'state_id' => 'required|int',
-            'city_id' => 'required|int',
+            'state_id' => 'nullable|int',
+            'city_id' => 'nullable|int',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
         ];

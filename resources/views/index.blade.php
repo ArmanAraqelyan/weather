@@ -7,6 +7,7 @@
                 <div class="mt-3">
                     <label>Country:</label>
                     <select name="country" id="country" class="form-select">
+                        <option value="" disabled selected>Please select your country</option>
                         @foreach($countries as $country)
                             <option value="{{ $country->id }}" data-location="{{ $country->location }}"> {{ $country->name }} </option>
                         @endforeach

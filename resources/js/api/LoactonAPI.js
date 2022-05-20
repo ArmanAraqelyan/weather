@@ -1,6 +1,5 @@
 const LocationAPI = {
     onSuccess: (res) => {
-        console.log(res)
     },
     onFailure: (err) => {
         console.error(err.message)

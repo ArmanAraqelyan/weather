@@ -44,11 +44,11 @@ class WeatherController extends Controller
                 (float) $request->latitude,
                 (float) $request->longitude
             );
-
-            $this->weatherRepository->store([...$request->getData(), ...['temperature' => $temperature]]);
+//            $this->weatherRepository->store([...$request->getData(), ...['temperature' => $temperature]]);
+            $this->weatherRepository->store((array) $request->getData()['temperature'] = $temperature);
             Cache::add($request->latitude . '.' . $request->longitude, $temperature);
         }
 
-        return response()->json($temperature);
+        return response()->json(['temperature' => $temperature]);
     }
 }
