@@ -16,7 +16,7 @@ class LocationController extends Controller
      */
     public function country(Country $country): LocationCountryResource
     {
-        return New LocationCountryResource($country);
+        return new LocationCountryResource($country);
     }
 
     /**
@@ -27,6 +27,6 @@ class LocationController extends Controller
      */
     public function state(State $state): LocationStateResource
     {
-        return New LocationStateResource($state);
+        return new LocationStateResource($state);
     }
 }

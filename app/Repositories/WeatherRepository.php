@@ -10,7 +10,6 @@ class WeatherRepository implements WeatherRepositoryContract
 {
     protected Model $model;
 
-
     public function __construct(Weather $weather)
     {
         $this->model = $weather;
@@ -18,9 +17,9 @@ class WeatherRepository implements WeatherRepositoryContract
 
     /**
      * @param array $weatherDetails
-     * @return mixed
+     * @return Model
      */
-    public function store(array $weatherDetails)
+    public function store(array $weatherDetails): Model
     {
         return $this->model->create($weatherDetails);
     }

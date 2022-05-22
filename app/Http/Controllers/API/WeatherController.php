@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Cache;
 
 class WeatherController extends Controller
 {
+    /**
+     * @const int
+     */
+    const ExpireInSec = 600;  // expires after 10 min
+
     private WeatherContext $weatherContext;
     private WeatherRepositoryContract $weatherRepository;
 
@@ -39,7 +44,6 @@ class WeatherController extends Controller
         $temperature = Cache::get($request->latitude . '.' . $request->longitude);
 
         if (!$temperature) {
-            //TODO Cache::pull() - we had this before
             $temperature = (new WeatherService($this->weatherContext))->getTemperature(
                 (float) $request->latitude,
                 (float) $request->longitude
@@ -47,7 +51,7 @@ class WeatherController extends Controller
 
 //            $this->weatherRepository->store([...$request->getData(), ...['temperature' => $temperature]]);
             $this->weatherRepository->store(array_merge($request->getData(), ['temperature' => $temperature]));
-            Cache::add($request->latitude . '.' . $request->longitude, $temperature, 600); // expires after 10 min
+            Cache::add($request->latitude . '.' . $request->longitude, $temperature, self::ExpireInSec);
         }
 
         return response()->json(['temperature' => $temperature]);

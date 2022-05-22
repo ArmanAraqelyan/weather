@@ -8,9 +8,9 @@ namespace App\ExternalAPI\Weather;
 class WeatherBitAPI extends AbstractWeatherAPI
 {
     /**
-     * @return float|null
+     * @return float
      */
-    public function getTemperature(): ?float
+    public function getTemperature(): float
     {
         return (float) $this->result->json()['data'][0]['temp'];
     }
