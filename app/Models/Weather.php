@@ -17,7 +17,6 @@ class Weather extends Model
         'city_id',
         'latitude',
         'longitude',
-        'temp',
-        'expires_at'
+        'temperature',
     ];
 }

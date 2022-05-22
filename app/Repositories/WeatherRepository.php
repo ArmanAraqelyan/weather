@@ -3,19 +3,23 @@
 namespace App\Repositories;
 
 use App\Contracts\WeatherRepositoryContract;
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Weather;
 
 class WeatherRepository implements WeatherRepositoryContract
 {
-    protected $model;
+    protected Model $model;
 
 
-    public function __construct(Weather $wather)
+    public function __construct(Weather $weather)
     {
-        $this->model = $wather;
+        $this->model = $weather;
     }
 
-
+    /**
+     * @param array $weatherDetails
+     * @return mixed
+     */
     public function store(array $weatherDetails)
     {
         return $this->model->create($weatherDetails);

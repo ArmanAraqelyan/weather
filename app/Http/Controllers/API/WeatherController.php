@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\API;
 
 use App\Contracts\WeatherRepositoryContract;
-use App\ExternalAPI\WeatherAPI\WeatherContext;
+use App\ExternalAPI\Weather\WeatherContext;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WeatherRequest;
 use App\Services\WeatherService;
@@ -44,9 +44,10 @@ class WeatherController extends Controller
                 (float) $request->latitude,
                 (float) $request->longitude
             );
+
 //            $this->weatherRepository->store([...$request->getData(), ...['temperature' => $temperature]]);
-            $this->weatherRepository->store((array) $request->getData()['temperature'] = $temperature);
-            Cache::add($request->latitude . '.' . $request->longitude, $temperature);
+            $this->weatherRepository->store(array_merge($request->getData(), ['temperature' => $temperature]));
+            Cache::add($request->latitude . '.' . $request->longitude, $temperature, 600); // expires after 10 min
         }
 
         return response()->json(['temperature' => $temperature]);

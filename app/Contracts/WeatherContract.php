@@ -6,5 +6,8 @@ namespace App\Contracts;
 
 interface WeatherContract
 {
-    public function getTemperature(): float;
+    /**
+     * @return float|null
+     */
+    public function getTemperature(): ?float;
 }

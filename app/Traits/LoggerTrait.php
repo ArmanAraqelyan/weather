@@ -8,8 +8,13 @@ use Illuminate\Support\Facades\Log;
 
 trait LoggerTrait
 {
-    public function log(\Exception $e): void
+    /**
+     * @param string $channel
+     * @param string $message
+     * @return void
+     */
+    public function log(string $channel, string $message): void
     {
-        Log::channel('errorException')->info($e);
+        Log::channel($channel)->info($message);
     }
 }

@@ -6,5 +6,8 @@ namespace App\Contracts;
 
 interface WeatherRepositoryContract
 {
+    /**
+     * @param array $weatherDetails
+     */
     public function store(array $weatherDetails);
 }

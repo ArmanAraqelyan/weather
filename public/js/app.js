@@ -993,7 +993,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar WeatherAPI = {\n  onSuccess: function onSuccess(res) {\n    console.log(res);\n  },\n  onFailure: function onFailure(err) {\n    console.error(err.message);\n  },\n  getTemperature: function getTemperature(params) {\n    var onSuccess = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.onSuccess;\n    var onFailure = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.onFailure;\n    $.ajax({\n      type: 'POST',\n      url: '/weather',\n      data: params,\n      success: onSuccess,\n      error: onFailure\n    });\n  }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WeatherAPI);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBpL1dlYXRoZXJBUGkuanMuanMiLCJtYXBwaW5ncyI6Ijs7OztBQUFBLElBQU1BLFVBQVUsR0FBRztFQUNmQyxTQUFTLEVBQUUsbUJBQUNDLEdBQUQsRUFBUztJQUNoQkMsT0FBTyxDQUFDQyxHQUFSLENBQVlGLEdBQVo7RUFDSCxDQUhjO0VBSWZHLFNBQVMsRUFBRSxtQkFBQ0MsR0FBRCxFQUFTO0lBQ2hCSCxPQUFPLENBQUNJLEtBQVIsQ0FBY0QsR0FBRyxDQUFDRSxPQUFsQjtFQUNILENBTmM7RUFPZkMsY0FBYyxFQUFFLHdCQUFVQyxNQUFWLEVBQTBFO0lBQUEsSUFBeERULFNBQXdELHVFQUE1QyxLQUFLQSxTQUF1QztJQUFBLElBQTVCSSxTQUE0Qix1RUFBaEIsS0FBS0EsU0FBVztJQUN0Rk0sQ0FBQyxDQUFDQyxJQUFGLENBQU87TUFDSEMsSUFBSSxFQUFFLE1BREg7TUFFSEMsR0FBRyxFQUFFLFVBRkY7TUFHSEMsSUFBSSxFQUFFTCxNQUhIO01BSUhNLE9BQU8sRUFBRWYsU0FKTjtNQUtITSxLQUFLLEVBQUVGO0lBTEosQ0FBUDtFQU9IO0FBZmMsQ0FBbkI7QUFtQkEsaUVBQWVMLFVBQWYiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYXBpL1dlYXRoZXJBUGkuanM/MTQyMSJdLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBXZWF0aGVyQVBJID0ge1xuICAgIG9uU3VjY2VzczogKHJlcykgPT4ge1xuICAgICAgICBjb25zb2xlLmxvZyhyZXMpXG4gICAgfSxcbiAgICBvbkZhaWx1cmU6IChlcnIpID0+IHtcbiAgICAgICAgY29uc29sZS5lcnJvcihlcnIubWVzc2FnZSlcbiAgICB9LFxuICAgIGdldFRlbXBlcmF0dXJlOiBmdW5jdGlvbiAocGFyYW1zLCBvblN1Y2Nlc3MgPSB0aGlzLm9uU3VjY2Vzcywgb25GYWlsdXJlID0gdGhpcy5vbkZhaWx1cmUpIHtcbiAgICAgICAgJC5hamF4KHtcbiAgICAgICAgICAgIHR5cGU6ICdQT1NUJyxcbiAgICAgICAgICAgIHVybDogJy93ZWF0aGVyJyxcbiAgICAgICAgICAgIGRhdGE6IHBhcmFtcyxcbiAgICAgICAgICAgIHN1Y2Nlc3M6IG9uU3VjY2VzcyxcbiAgICAgICAgICAgIGVycm9yOiBvbkZhaWx1cmVcbiAgICAgICAgfSlcbiAgICB9LFxufVxuXG5cbmV4cG9ydCBkZWZhdWx0IFdlYXRoZXJBUEk7XG4iXSwibmFtZXMiOlsiV2VhdGhlckFQSSIsIm9uU3VjY2VzcyIsInJlcyIsImNvbnNvbGUiLCJsb2ciLCJvbkZhaWx1cmUiLCJlcnIiLCJlcnJvciIsIm1lc3NhZ2UiLCJnZXRUZW1wZXJhdHVyZSIsInBhcmFtcyIsIiQiLCJhamF4IiwidHlwZSIsInVybCIsImRhdGEiLCJzdWNjZXNzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/js/api/WeatherAPi.js\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar Weather = {\n  onSuccess: function onSuccess(res) {\n    console.log(res);\n  },\n  onFailure: function onFailure(err) {\n    console.error(err.message);\n  },\n  getTemperature: function getTemperature(params) {\n    var onSuccess = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.onSuccess;\n    var onFailure = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.onFailure;\n    $.ajax({\n      type: 'POST',\n      url: '/weather',\n      data: params,\n      success: onSuccess,\n      error: onFailure\n    });\n  }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Weather);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBpL1dlYXRoZXJBUGkuanMuanMiLCJtYXBwaW5ncyI6Ijs7OztBQUFBLElBQU1BLFVBQVUsR0FBRztFQUNmQyxTQUFTLEVBQUUsbUJBQUNDLEdBQUQsRUFBUztJQUNoQkMsT0FBTyxDQUFDQyxHQUFSLENBQVlGLEdBQVo7RUFDSCxDQUhjO0VBSWZHLFNBQVMsRUFBRSxtQkFBQ0MsR0FBRCxFQUFTO0lBQ2hCSCxPQUFPLENBQUNJLEtBQVIsQ0FBY0QsR0FBRyxDQUFDRSxPQUFsQjtFQUNILENBTmM7RUFPZkMsY0FBYyxFQUFFLHdCQUFVQyxNQUFWLEVBQTBFO0lBQUEsSUFBeERULFNBQXdELHVFQUE1QyxLQUFLQSxTQUF1QztJQUFBLElBQTVCSSxTQUE0Qix1RUFBaEIsS0FBS0EsU0FBVztJQUN0Rk0sQ0FBQyxDQUFDQyxJQUFGLENBQU87TUFDSEMsSUFBSSxFQUFFLE1BREg7TUFFSEMsR0FBRyxFQUFFLFVBRkY7TUFHSEMsSUFBSSxFQUFFTCxNQUhIO01BSUhNLE9BQU8sRUFBRWYsU0FKTjtNQUtITSxLQUFLLEVBQUVGO0lBTEosQ0FBUDtFQU9IO0FBZmMsQ0FBbkI7QUFtQkEsaUVBQWVMLFVBQWYiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYXBpL1dlYXRoZXJBUGkuanM/MTQyMSJdLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBXZWF0aGVyQVBJID0ge1xuICAgIG9uU3VjY2VzczogKHJlcykgPT4ge1xuICAgICAgICBjb25zb2xlLmxvZyhyZXMpXG4gICAgfSxcbiAgICBvbkZhaWx1cmU6IChlcnIpID0+IHtcbiAgICAgICAgY29uc29sZS5lcnJvcihlcnIubWVzc2FnZSlcbiAgICB9LFxuICAgIGdldFRlbXBlcmF0dXJlOiBmdW5jdGlvbiAocGFyYW1zLCBvblN1Y2Nlc3MgPSB0aGlzLm9uU3VjY2Vzcywgb25GYWlsdXJlID0gdGhpcy5vbkZhaWx1cmUpIHtcbiAgICAgICAgJC5hamF4KHtcbiAgICAgICAgICAgIHR5cGU6ICdQT1NUJyxcbiAgICAgICAgICAgIHVybDogJy93ZWF0aGVyJyxcbiAgICAgICAgICAgIGRhdGE6IHBhcmFtcyxcbiAgICAgICAgICAgIHN1Y2Nlc3M6IG9uU3VjY2VzcyxcbiAgICAgICAgICAgIGVycm9yOiBvbkZhaWx1cmVcbiAgICAgICAgfSlcbiAgICB9LFxufVxuXG5cbmV4cG9ydCBkZWZhdWx0IFdlYXRoZXJBUEk7XG4iXSwibmFtZXMiOlsiV2VhdGhlckFQSSIsIm9uU3VjY2VzcyIsInJlcyIsImNvbnNvbGUiLCJsb2ciLCJvbkZhaWx1cmUiLCJlcnIiLCJlcnJvciIsIm1lc3NhZ2UiLCJnZXRUZW1wZXJhdHVyZSIsInBhcmFtcyIsIiQiLCJhamF4IiwidHlwZSIsInVybCIsImRhdGEiLCJzdWNjZXNzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/js/api/WeatherAPi.js\n");
 
 /***/ }),
 
@@ -1104,7 +1104,7 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -1118,20 +1118,20 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
@@ -1164,7 +1164,7 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 			return result;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -1176,7 +1176,7 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -1188,7 +1188,7 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -1200,12 +1200,12 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -1216,7 +1216,7 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -1225,11 +1225,11 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
-/******/ 		
+/******/
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
@@ -1237,19 +1237,19 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0
 /******/ 		};
-/******/ 		
+/******/
 /******/ 		// no chunk on demand loading
-/******/ 		
+/******/
 /******/ 		// no prefetching
-/******/ 		
+/******/
 /******/ 		// no preloaded
-/******/ 		
+/******/
 /******/ 		// no HMR
-/******/ 		
+/******/
 /******/ 		// no HMR manifest
-/******/ 		
+/******/
 /******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
+/******/
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
 /******/ 			var [chunkIds, moreModules, runtime] = data;
@@ -1274,20 +1274,20 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
-/******/ 		
+/******/
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+/******/
 /******/ })()
 ;
