@@ -32,15 +32,15 @@ A few notes:
     - `php artisan migrate`
     - `php artisan db:seed`
 
-You need to have these configs in your .env file besides the db configs.
+You need to have these configs in your .env file besides the db configs.  
 
-`OPENWEATHERMAP_KEY=`
-`OPENWEATHERMAP_API_URL=https://api.openweathermap.org/data/2.5/`
-`WEATHERBIT_KEY=`
-`WEATHERBIT_API_URL=https://api.weatherbit.io/v2.0/`
+`OPENWEATHERMAP_KEY=`  
+`OPENWEATHERMAP_API_URL=https://api.openweathermap.org/data/2.5/`  
+`WEATHERBIT_KEY=`  
+`WEATHERBIT_API_URL=https://api.weatherbit.io/v2.0/`  
 
-You can get 
-`OPENWEATHERMAP_KEY` from https://openweathermap.org/API
-`WEATHERBIT_KEY` from https://www.weatherbit.io/
+You can get   
+`OPENWEATHERMAP_KEY` from https://openweathermap.org/API  
+`WEATHERBIT_KEY` from https://www.weatherbit.io/  
 
 ![image](https://user-images.githubusercontent.com/45182546/169783061-c23f9d9d-c7f3-482e-b91c-747e76119213.png)
