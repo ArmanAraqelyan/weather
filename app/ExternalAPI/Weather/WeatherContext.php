@@ -4,30 +4,19 @@ declare(strict_types=1);
 
 namespace App\ExternalAPI\Weather;
 
-use App\Contracts\WeatherContract;
+use App\Contracts\WeatherApiContract;
 
 class WeatherContext
 {
-    /**
-     * @var WeatherContract
-     */
-    public WeatherContract $strategy;
+    public WeatherApiContract $weatherApi;
 
-    /**
-     * @param WeatherContract $weatherStrategy
-     * @return void
-     */
-    public function setStrategy(WeatherContract $weatherStrategy): void
+    public function setWeatherApi(WeatherApiContract $weatherApi): void
     {
-        $this->strategy = $weatherStrategy;
+        $this->weatherApi = $weatherApi;
     }
 
-    /**
-     * @return bool
-     */
     public function apiRequest(): bool
     {
-        return $this->strategy->makeRequest();
+        return $this->weatherApi->makeRequest();
     }
-
 }

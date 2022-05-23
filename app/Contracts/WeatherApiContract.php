@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace App\Contracts;
 
-interface WeatherContract
+interface WeatherApiContract
 {
-    /**
-     * @return float
-     */
     public function getTemperature(): float;
 }

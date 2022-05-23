@@ -7,9 +7,6 @@ use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
-    /**
-     * @return View
-    */
     public function index(): View
     {
         $countries = Country::all();

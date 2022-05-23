@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Contracts;
 
+use Illuminate\Database\Eloquent\Model;
+
 interface WeatherRepositoryContract
 {
-    /**
-     * @param array $weatherDetails
-     */
-    public function store(array $weatherDetails);
+    public function store(array $weatherDetails): Model;
 }

@@ -15,17 +15,13 @@ use Illuminate\Support\Facades\Cache;
 class WeatherController extends Controller
 {
     /**
-     * @const int
+     * expires after 10 min
      */
-    const ExpireInSec = 600;  // expires after 10 min
+    const EXPIRES_AFTER = 600;
 
     private WeatherContext $weatherContext;
     private WeatherRepositoryContract $weatherRepository;
 
-    /**
-     * @param WeatherContext $weatherContext
-     * @param WeatherRepositoryContract $weatherRepository
-     */
     public function __construct(
         WeatherContext $weatherContext,
         WeatherRepositoryContract $weatherRepository
@@ -35,10 +31,6 @@ class WeatherController extends Controller
         $this->weatherRepository = $weatherRepository;
     }
 
-    /**
-     * @param WeatherRequest $request
-     * @return JsonResponse
-     */
     public function getWeather(WeatherRequest $request): JsonResponse
     {
         $temperature = Cache::get($request->latitude . '.' . $request->longitude);
@@ -51,7 +43,7 @@ class WeatherController extends Controller
 
 //            $this->weatherRepository->store([...$request->getData(), ...['temperature' => $temperature]]);
             $this->weatherRepository->store(array_merge($request->getData(), ['temperature' => $temperature]));
-            Cache::add($request->latitude . '.' . $request->longitude, $temperature, self::ExpireInSec);
+            Cache::add($request->latitude . '.' . $request->longitude, $temperature, self::EXPIRES_AFTER);
         }
 
         return response()->json(['temperature' => $temperature]);
