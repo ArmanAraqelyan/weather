@@ -24,10 +24,11 @@ A few notes:
 
 ## Usage
 
-1. clone the project
+1. Clone the project
 2. Run:
     - `copy .env.example .env`
     - `composer install`
+    - `npm install`
     - `php artisan key:generate`
     - `php artisan migrate`
     - `php artisan db:seed`
@@ -42,5 +43,7 @@ You need to have these configs in your .env file besides the db configs.
 You can get   
 `OPENWEATHERMAP_KEY` from https://openweathermap.org/API  
 `WEATHERBIT_KEY` from https://www.weatherbit.io/  
+
+## Result
 
 ![image](https://user-images.githubusercontent.com/45182546/169783061-c23f9d9d-c7f3-482e-b91c-747e76119213.png)
