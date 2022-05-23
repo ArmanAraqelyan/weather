@@ -10,6 +10,10 @@ use App\Models\State;
 
 class LocationController extends Controller
 {
+    /**
+     * @param Country $country
+     * @return LocationCountryResource
+     */
     public function country(Country $country): LocationCountryResource
     {
         return new LocationCountryResource($country);
@@ -17,6 +21,9 @@ class LocationController extends Controller
 
     /**
      * Get states related to country.
+     *
+     * @param State $state
+     * @return LocationStateResource
      */
     public function state(State $state): LocationStateResource
     {

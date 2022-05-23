@@ -8,6 +8,8 @@ class WeatherRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
     public function authorize(): bool
     {
@@ -16,6 +18,8 @@ class WeatherRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
+     *
+     * @return string[]
      */
     public function rules(): array
     {
@@ -28,14 +32,15 @@ class WeatherRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array
+     */
     public function getData(): array
     {
         return [
             'country_id' => $this->country_id,
             'state_id' => $this->state_id,
-            'city_id' => $this->city_id,
-            'latitude' => $this->latitude,
-            'longitude' => $this->longitude
+            'city_id' => $this->city_id
         ];
     }
 }

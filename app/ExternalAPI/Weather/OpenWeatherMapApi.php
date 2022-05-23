@@ -6,11 +6,17 @@ namespace App\ExternalAPI\Weather;
 
 class OpenWeatherMapApi extends AbstractWeatherApi
 {
+    /**
+     * @return float
+     */
     public function getTemperature(): float
     {
         return (float) $this->result->json()['main']['temp'];
     }
 
+    /**
+     * @return void
+     */
     protected function setUrl(): void
     {
         $this->url = env('OPENWEATHERMAP_API_URL') . 'weather?lat=' .

@@ -1,9 +1,8 @@
 const WeatherAPI = {
-    onSuccess: (res) => {},
     onFailure: (err) => {
         console.error(err.message)
     },
-    getTemperature: function (params, onSuccess = this.onSuccess, onFailure = this.onFailure) {
+    getTemperature: function (params, onSuccess, onFailure = this.onFailure) {
         $.ajax({
             type: 'POST',
             url: '/weather',

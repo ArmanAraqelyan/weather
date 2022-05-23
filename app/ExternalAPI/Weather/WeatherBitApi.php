@@ -6,11 +6,17 @@ namespace App\ExternalAPI\Weather;
 
 class WeatherBitApi extends AbstractWeatherApi
 {
+    /**
+     * @return float
+     */
     public function getTemperature(): float
     {
         return (float) $this->result->json()['data'][0]['temp'];
     }
 
+    /**
+     * @return void
+     */
     protected function setUrl(): void
     {
         $this->url = env('WEATHERBIT_API_URL') . 'current?lat=' .

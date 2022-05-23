@@ -17,11 +17,19 @@ class WeatherService
     private array $temperatures;
     private WeatherContext $weatherContext;
 
+    /**
+     * @param WeatherContext $weatherContext
+     */
     public function __construct(WeatherContext $weatherContext)
     {
         $this->weatherContext = $weatherContext;
     }
 
+    /**
+     * @param float $latitude
+     * @param float $longitude
+     * @return float
+     */
     public function getTemperature(float $latitude, float $longitude): float
     {
         foreach ($this->weatherApis as $weatherApi) {
@@ -33,6 +41,9 @@ class WeatherService
         return $this->getTemperatureAverage();
     }
 
+    /**
+     * @return float
+     */
     private function getTemperatureAverage(): float
     {
         return round(array_sum($this->temperatures) / count($this->temperatures), 1);

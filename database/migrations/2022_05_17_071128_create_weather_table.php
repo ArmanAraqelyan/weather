@@ -18,8 +18,6 @@ return new class extends Migration
             $table->unsignedInteger('country_id')->index();
             $table->unsignedInteger('state_id')->index()->nullable();
             $table->unsignedInteger('city_id')->index()->nullable();
-            $table->text('latitude');
-            $table->text('longitude');
             $table->string('temperature');
         });
     }

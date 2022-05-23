@@ -22,6 +22,10 @@ class WeatherController extends Controller
     private WeatherContext $weatherContext;
     private WeatherRepositoryContract $weatherRepository;
 
+    /**
+     * @param WeatherContext $weatherContext
+     * @param WeatherRepositoryContract $weatherRepository
+     */
     public function __construct(
         WeatherContext $weatherContext,
         WeatherRepositoryContract $weatherRepository
@@ -31,6 +35,10 @@ class WeatherController extends Controller
         $this->weatherRepository = $weatherRepository;
     }
 
+    /**
+     * @param WeatherRequest $request
+     * @return JsonResponse
+     */
     public function getWeather(WeatherRequest $request): JsonResponse
     {
         $temperature = Cache::get($request->latitude . '.' . $request->longitude);
@@ -41,7 +49,6 @@ class WeatherController extends Controller
                 (float) $request->longitude
             );
 
-//            $this->weatherRepository->store([...$request->getData(), ...['temperature' => $temperature]]);
             $this->weatherRepository->store(array_merge($request->getData(), ['temperature' => $temperature]));
             Cache::add($request->latitude . '.' . $request->longitude, $temperature, self::EXPIRES_AFTER);
         }

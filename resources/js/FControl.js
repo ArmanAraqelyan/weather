@@ -1,13 +1,15 @@
 const FControl = {
-    appendSelectOptions: function ($el, options, type) {
-        $el.html(this.getSelectOptionsHTML(options, type));
-    },
-    getSelectOptionsHTML: function (options, type) {
-         let html = `<option value="0" data-id="0" disabled selected>Please select your ${type === 'states' ? 'state' : 'city' }</option>`
-         options.forEach( value =>
-            html += `<option value=${value.id} data-location='{"latitude":${value.latitude}, "longitude":${value.longitude}}'>${value.name}</option>`
-         )
-         return html;
+    appendSelectOptions: function ($el, data, type) {
+        let opt = data.map(value => {
+            return $('<option>').val(value.id).text(value.name).attr({
+                'data-location': `{"latitude":${value.latitude}, "longitude":${value.longitude}}`
+            })
+        });
+        $el.html(opt, type);
+        $el.prepend($('<option>').text('Please select your zone').attr({
+            'disabled': true,
+            'selected': true
+        }))
     },
     hide: function ($el) {
         $el.parent('div').hide()

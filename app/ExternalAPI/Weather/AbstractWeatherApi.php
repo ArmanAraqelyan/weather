@@ -19,6 +19,10 @@ abstract class AbstractWeatherApi implements WeatherApiContract, LoggableContrac
     protected float $longitude;
     protected Response $result;
 
+    /**
+     * @param float $latitude
+     * @param float $longitude
+     */
     public function __construct(float $latitude, float $longitude)
     {
         $this->latitude  = $latitude;
@@ -26,8 +30,14 @@ abstract class AbstractWeatherApi implements WeatherApiContract, LoggableContrac
         $this->setUrl();
     }
 
+    /**
+     * @return void
+     */
     abstract protected function setUrl(): void;
 
+    /**
+     * @return bool
+     */
     public function makeRequest(): bool
     {
         try {

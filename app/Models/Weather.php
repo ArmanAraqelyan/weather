@@ -15,8 +15,6 @@ class Weather extends Model
         'country_id',
         'state_id',
         'city_id',
-        'latitude',
-        'longitude',
         'temperature',
     ];
 }

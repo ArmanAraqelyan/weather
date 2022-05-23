@@ -1,9 +1,8 @@
 const LocationAPI = {
-    onSuccess: (res) => {},
     onFailure: (err) => {
         console.error(err.message)
     },
-    getCountryLocationData: function (countryId, onSuccess = this.onSuccess, onFailure = this.onFailure) {
+    getCountryLocationData: function (countryId, onSuccess, onFailure = this.onFailure) {
         $.ajax({
             type: 'GET',
             url: `/country/${countryId}`,
@@ -11,7 +10,7 @@ const LocationAPI = {
             error: onFailure
         })
     },
-    getStateLocationData: function (stateId, onSuccess = this.onSuccess, onFailure = this.onFailure) {
+    getStateLocationData: function (stateId, onSuccess, onFailure = this.onFailure) {
         $.ajax({
             type: 'GET',
             url: `/state/${stateId}`,
