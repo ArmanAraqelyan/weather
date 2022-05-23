@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index(): View
     {
-        $countries = Country::all();
+        $countries = Country::select('id', 'name')->get();
         return view('index', compact('countries'));
     }
 }

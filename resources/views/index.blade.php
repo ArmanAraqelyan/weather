@@ -9,7 +9,7 @@
                     <select name="country" id="country" class="form-select">
                         <option value="" disabled selected>Please select your country</option>
                         @foreach($countries as $country)
-                            <option value="{{ $country->id }}" data-location="{{ $country->location }}"> {{ $country->name }} </option>
+                            <option value="{{ $country->id }}">{{ $country->name }}</option>
                         @endforeach
                     </select>
                 </div>

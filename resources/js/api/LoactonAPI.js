@@ -1,6 +1,5 @@
 const LocationAPI = {
-    onSuccess: (res) => {
-    },
+    onSuccess: (res) => {},
     onFailure: (err) => {
         console.error(err.message)
     },
@@ -21,6 +20,5 @@ const LocationAPI = {
         })
     },
 }
-
 
 export default LocationAPI;

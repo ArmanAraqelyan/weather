@@ -13,6 +13,9 @@ class WeatherBitApi extends AbstractWeatherApi
 
     protected function setUrl(): void
     {
-        $this->url = env('WEATHERBIT_API_URL') . 'current?lat=' . $this->latitude . "&lon=" . $this->longitude . "&key=" . env('WEATHERBIT_KEY') . "&include=minutely";
+        $this->url = env('WEATHERBIT_API_URL') . 'current?lat=' .
+            $this->latitude . "&lon=" .
+            $this->longitude . "&key=" .
+            env('WEATHERBIT_KEY') . "&include=minutely";
     }
 }

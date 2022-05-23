@@ -13,6 +13,9 @@ class OpenWeatherMapApi extends AbstractWeatherApi
 
     protected function setUrl(): void
     {
-        $this->url = env('OPENWEATHERMAP_API_URL') . 'weather?lat=' . $this->latitude . "&lon=" . $this->longitude . "&appid=" . env('OPENWEATHERMAP_KEY') . "&units=metric";
+        $this->url = env('OPENWEATHERMAP_API_URL') . 'weather?lat=' .
+            $this->latitude . "&lon=" .
+            $this->longitude . "&appid=" .
+            env('OPENWEATHERMAP_KEY') . "&units=metric";
     }
 }

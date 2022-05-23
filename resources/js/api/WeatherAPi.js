@@ -1,6 +1,5 @@
 const WeatherAPI = {
-    onSuccess: (res) => {
-    },
+    onSuccess: (res) => {},
     onFailure: (err) => {
         console.error(err.message)
     },
@@ -14,6 +13,5 @@ const WeatherAPI = {
         })
     },
 }
-
 
 export default WeatherAPI;
