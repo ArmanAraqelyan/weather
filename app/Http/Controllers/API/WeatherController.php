@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Http\Controllers\API;
 
 use App\Contracts\WeatherRepositoryContract;
+use App\Contracts\WeatherServiceContract;
+use App\Dto\DestinationDto;
+use App\Dto\WeatherStoreDto;
 use App\ExternalAPI\Weather\WeatherContext;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WeatherRequest;
-use App\Services\WeatherService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Cache;
 
@@ -19,21 +21,11 @@ class WeatherController extends Controller
      */
     const EXPIRES_AFTER = 600;
 
-    private WeatherContext $weatherContext;
-    private WeatherRepositoryContract $weatherRepository;
-
-    /**
-     * @param WeatherContext $weatherContext
-     * @param WeatherRepositoryContract $weatherRepository
-     */
     public function __construct(
-        WeatherContext $weatherContext,
-        WeatherRepositoryContract $weatherRepository
-    )
-    {
-        $this->weatherContext = $weatherContext;
-        $this->weatherRepository = $weatherRepository;
-    }
+        private WeatherContext $weatherContext,
+        private WeatherRepositoryContract $weatherRepository,
+        private WeatherServiceContract $weatherService
+    ) {}
 
     /**
      * @param WeatherRequest $request
@@ -41,18 +33,21 @@ class WeatherController extends Controller
      */
     public function getWeather(WeatherRequest $request): JsonResponse
     {
-        $temperature = Cache::get($request->latitude . '.' . $request->longitude);
+        $destination = ['latitude' => (float) $request->latitude, 'longitude' => (float) $request->longitude];
+        $temperature = Cache::get($destination['latitude'] . '.' . $destination['longitude']);
 
         if (!$temperature) {
-            $temperature = (new WeatherService($this->weatherContext))->getTemperature(
-                (float) $request->latitude,
-                (float) $request->longitude
-            );
+            $temperature = (($this->weatherService)($this->weatherContext))->getTemperature(DestinationDto::init($destination));
+            $this->storeWeatherDetails(array_merge($request->getData(), ['temperature' => $temperature]));
 
-            $this->weatherRepository->store(array_merge($request->getData(), ['temperature' => $temperature]));
-            Cache::add($request->latitude . '.' . $request->longitude, $temperature, self::EXPIRES_AFTER);
+            Cache::add($destination['latitude'] . '.' . $destination['longitude'], $temperature, self::EXPIRES_AFTER);
         }
 
         return response()->json(['temperature' => $temperature]);
+    }
+
+    private function storeWeatherDetails(array $weatherDetails)
+    {
+        $this->weatherRepository->store(WeatherStoreDto::init($weatherDetails));
     }
 }

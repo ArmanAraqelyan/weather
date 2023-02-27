@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Contracts;
 
+use App\Dto\WeatherStoreDto;
 use Illuminate\Database\Eloquent\Model;
 
 interface WeatherRepositoryContract
 {
     /**
-     * @param array $weatherDetails
+     * @param WeatherStoreDto $weatherStoreDto
      * @return Model
      */
-    public function store(array $weatherDetails): Model;
+    public function store(WeatherStoreDto $weatherStoreDto): Model;
 }

@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Contracts\WeatherServiceContract;
+use App\Dto\DestinationDto;
 use App\ExternalAPI\Weather\OpenWeatherMapApi;
 use App\ExternalAPI\Weather\WeatherBitApi;
 use App\ExternalAPI\Weather\WeatherContext;
 
-class WeatherService
+class WeatherService implements WeatherServiceContract
 {
     private array $weatherApis = [
         OpenWeatherMapApi::class,
@@ -26,14 +28,13 @@ class WeatherService
     }
 
     /**
-     * @param float $latitude
-     * @param float $longitude
+     * @param DestinationDto $destinationDto
      * @return float
      */
-    public function getTemperature(float $latitude, float $longitude): float
+    public function getTemperature(DestinationDto $destinationDto): float
     {
         foreach ($this->weatherApis as $weatherApi) {
-            $this->weatherContext->setWeatherApi(new $weatherApi($latitude, $longitude));
+            $this->weatherContext->setWeatherApi(new $weatherApi($destinationDto->getLatitude(), $destinationDto->getLongitude()));
             if ($this->weatherContext->apiRequest()) {
                 $this->temperatures[] = $this->weatherContext->weatherApi->getTemperature();
             }

@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Contracts\WeatherRepositoryContract;
+use App\Dto\WeatherStoreDto;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Weather;
 
@@ -19,11 +20,11 @@ class WeatherRepository implements WeatherRepositoryContract
     }
 
     /**
-     * @param array $weatherDetails
+     * @param WeatherStoreDto $weatherStoreDto
      * @return Model
      */
-    public function store(array $weatherDetails): Model
+    public function store(WeatherStoreDto $weatherStoreDto): Model
     {
-        return $this->model->create($weatherDetails);
+        return $this->model->create($weatherStoreDto->getWeatherDetails());
     }
 }
